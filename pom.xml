@@ -23,10 +23,16 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!--add new dependency - devtool - need to change config in setting to make the devTool work -->
+		<!-- add new dependency - devtool - need to change config in setting to make the devTool work -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<!-- ADD SUPPORT FOR SPRING BOOT ACTUATOR -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
 		<dependency>
