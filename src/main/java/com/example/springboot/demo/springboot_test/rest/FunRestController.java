@@ -9,4 +9,9 @@ public class FunRestController {
     public String sayHello(){
         return "hello wrold!";
     }
+
+    @GetMapping("/workout") //http get handler route
+    public String getWorkout(){
+        return "ran 5km!";
+    }
 }
