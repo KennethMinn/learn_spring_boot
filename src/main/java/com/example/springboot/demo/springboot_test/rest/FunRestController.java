@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FunRestController {
     @GetMapping("/") //http get handler route
     public String sayHello(){
-        return "hello wrold!";
+        return "hello wrold !!!!";
     }
 
     @GetMapping("/workout") //http get handler route
