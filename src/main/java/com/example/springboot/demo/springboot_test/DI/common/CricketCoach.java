@@ -7,6 +7,6 @@ public class CricketCoach implements Coach{
 
     @Override
     public String getDailWorkout() {
-        return "Run 1 kilo!";
+        return "Run 1 kilo!!!";
     }
 }
