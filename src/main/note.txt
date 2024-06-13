@@ -1,0 +1,28 @@
+#SPRING CONTAINER
+
+Primary Functions
+-create and manage objects (inversion of control)
+-inject object's dependencies (Dependencies injection)
+
+two recommended types of injection
+#Constructor injection
+-use this when you have required dependencies
+-generally recommended by the spring.io development team
+
+-Setter injection
+-use this when you have optional dependencies
+-if dependency is not provided, your app can provide reasonable default logic
+
+#COMPONENT SCANNING
+-spring will only scan the directory of SpringbootTestApplication.java - com.example.springboot.demo.springboot_test
+-spring won't component scan the directory of com.example.springnboot.demo.utils
+-we can config this at SpringBootApplication at our main java file
+
+@SpringBootApplication(
+    scanBasePackages = {
+        "com.example.springboot.demo.springboot_test",
+        "com.example.springnboot.demo.utils"
+    }
+)
+
+-will now scan the directory of those inside scanBasePackages
