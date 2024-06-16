@@ -26,3 +26,55 @@ two recommended types of injection
 )
 
 -will now scan the directory of those inside scanBasePackages
+
+#QULIFIERS - can only specify a beanId - BETTER THAN PRIMARY
+-use when there are more than one service -> @Qualifier("cricketCoach") -> specified a service(dependency) at controller
+
+#PRIMARY - can only mark a component
+-giving priority a service -> @primary -> at component(service)
+
+#LAZY INITIALIZATION - @Lazy at service
+-when our app is started, all the beans are initialized
+
+-with lazy initialization a bean will only initialized in the following case:
+- it is needed for dependency injection
+- Or it is explicitly requested
+
+#global config - lazy initialization
+spring.main.lazy-initialization=true
+
+#BEAN SCOPES
+-spring default is singleton - all dependencies for the bean will reference the same bean(service) - same object instance
+
+#prototype
+at component add annotation - @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) - new object instance for each injection
+
+#BEAN LIFE CYCLE METHOD
+at component, can can define a method with @PostConstruct annotation - will run when bean initialization
+at component, can can define a method with @PreDestroy annotation - will run when bean destruction
+
+#Special Note about Prototype Scope
+-Destroy Lifecycle Method and Lazy Init
+ Prototype Beans and Destroy Lifecycle
+ There is a subtle point you need to be aware of with "prototype" scoped beans.
+
+ For "prototype" scoped beans, Spring does not call the destroy method. Gasp!
+
+ ---
+
+ In contrast to the other scopes, Spring does not manage the complete lifecycle of a prototype bean:
+ the container instantiates, configures, and otherwise assembles a prototype object, and hands it to the client,
+ with no further record of that prototype instance.
+
+ Thus, although initialization lifecycle callback methods are called on all objects regardless of scope,
+ in the case of prototypes, configured destruction lifecycle callbacks are not called.
+ The client code must clean up prototype-scoped objects and release expensive resources that
+ the prototype bean(s) are holding.
+
+ Prototype Beans and Lazy Initialization
+ Prototype beans are lazy by default. There is no need to use the @Lazy annotation for prototype scopes beans.
+
+ BEAN ANNOTATION
+ -make an existing third-party class available to spring framework
+ -you may not have access to the source code of third-party class
+ -use this when you wanna use the third-party class as the spring bean
